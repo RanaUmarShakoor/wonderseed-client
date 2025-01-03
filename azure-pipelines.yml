@@ -1,0 +1,88 @@
+# Node.js React Web App to Linux on Azure
+# Build a Node.js React app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - main
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: "a5aa223d-bcc9-4040-8ecc-31d6b913646e"
+
+  # Web app name
+  webAppName: "wonderseed"
+
+  # Environment name
+  environmentName: "wonderseed"
+
+  # Agent VM image name
+  vmImageName: "ubuntu-latest"
+
+  # Node.js version
+  nodeVersion: "18.x"
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+            displayName: "Install Node.js"
+
+          - script: |
+              npm install -g yarn
+            displayName: "Install yarn"
+
+          - script: |
+              yarn install --frozen-lockfile
+              yarn build
+            displayName: "yarn install and build"
+
+          - task: ArchiveFiles@2
+            displayName: "Archive files"
+            inputs:
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/dist"
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+              replaceExistingArchive: true
+
+          - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: Deploy
+        displayName: Deploy
+        environment: $(environmentName)
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: UseNode@1
+                  inputs:
+                    version: $(nodeVersion)
+                  displayName: "Use Node.js $(nodeVersion)"
+
+                - task: AzureWebApp@1
+                  displayName: "Azure Web App Deploy: $(webAppName)"
+                  inputs:
+                    azureSubscription: $(azureSubscription)
+                    appType: webAppLinux
+                    appName: $(webAppName)
+                    runtimeStack: "NODE|$(nodeVersion)"
+                    package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+                    startUpCommand: "pm2 serve /home/site/wwwroot --no-daemon --spa"

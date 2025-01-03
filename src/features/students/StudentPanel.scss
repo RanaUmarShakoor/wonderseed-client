@@ -1,0 +1,44 @@
+@tailwind components;
+
+@layer components {
+  #panel-students {
+    @apply flex;
+    @apply max-h-full min-h-full min-w-full max-w-full;
+    // background: transparent linear-gradient(180deg, #e0ebce 0%, #ffffff 100%) 0% 0% no-repeat padding-box;
+    // because progress bar is nor visible on the above color
+    background: transparent linear-gradient(180deg, #f2f6ec 0%, #ffffff 100%) 0%
+      0% no-repeat padding-box;
+  }
+
+  #st-top-navlink {
+    @apply mt-9;
+    @apply flex justify-end gap-x-8;
+
+    > a {
+      @apply px-1 py-1.5;
+      @apply border-b-2 border-transparent;
+      @apply transition-colors;
+      @apply hover:text-green-1;
+
+      &[data-active="true"][data-nobar="false"] {
+        @apply border-[#CDDB5E] font-bold text-green-1;
+      }
+    }
+  }
+}
+
+/* My progress */
+@layer components {
+  #st-progress-grad-1 {
+    background: transparent linear-gradient(180deg, #e1ebd0 0%, #f4f6d7 100%) 0%
+      0% no-repeat padding-box;
+  }
+  #st-progress-grad-2 {
+    background: transparent linear-gradient(180deg, #f5eac6 0%, #f6e9d7 100%) 0%
+      0% no-repeat padding-box;
+  }
+  #st-progress-grad-3 {
+    background: transparent linear-gradient(180deg, #f8e6e1 0%, #fcded3 100%) 0%
+      0% no-repeat padding-box;
+  }
+}

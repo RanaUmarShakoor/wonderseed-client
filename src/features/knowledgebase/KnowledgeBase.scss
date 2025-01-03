@@ -1,0 +1,25 @@
+@tailwind components;
+
+@layer components {
+  .kb-card {
+    background: white;
+    box-shadow: 0px 13px 26px #00000010;
+
+    @apply px-10;
+
+    > .image-wrapper {
+      @apply -mx-10;
+      @apply mb-10;
+      background: #e1ebd0 0% 0% no-repeat padding-box;
+      box-shadow: 0px 13px 26px #00000010;
+      height: 200px;
+
+      position: relative;
+
+      > img {
+        @apply max-h-full;
+        @apply absolute left-1/2 -translate-x-1/2 translate-y-[22px];
+      }
+    }
+  }
+}

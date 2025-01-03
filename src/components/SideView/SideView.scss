@@ -1,0 +1,102 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  #app-sideview {
+    @apply bg-white;
+    @apply min-w-0;
+    @apply overflow-x-hidden;
+
+    box-shadow: 0px 3px 46px #0000000f;
+    width: 295px;
+
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+
+    &[data-collapsed="true"] {
+      width: 116px;
+      @apply bg-transparent shadow-none;
+    }
+
+    > div {
+      @apply flex h-full flex-col items-start;
+      > * {
+        @apply shrink-0;
+      }
+    }
+  }
+}
+
+@layer components {
+  #sidebar-collapse-button {
+    @apply flex items-center justify-center;
+    @apply transition-colors;
+
+    // @apply group-[[data-collapsed=true]]/side-view:bg-red-300;
+
+    width: auto;
+    background-color: #e1ebd0;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #caed8e;
+    }
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-x-4;
+    @apply px-4 py-3.5;
+    @apply transition-all;
+    border-radius: 18px;
+
+    > img:first-child {
+      @apply shrink-0;
+      width: 32px;
+      height: 32px;
+    }
+
+    > span {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #447261;
+    }
+
+    > .arrow-head {
+      // It will have zero width and height. Triangle will be made by borders
+      width: 0;
+      height: 0;
+      // Use single side border for an approximate triangle
+      border: 8px solid #4f7162;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      // scale down a little
+      transform: scaleY(0.75);
+      // Move it to the right
+      margin-left: auto;
+
+      visibility: hidden;
+    }
+
+    &[data-active="true"],
+    &:hover {
+      background-color: #f4f6d7;
+    }
+
+    &[data-active="true"] > .arrow-head {
+      visibility: visible;
+    }
+  }
+
+  #app-sideview[data-collapsed="true"]
+    .sidebar-link[data-no-active-collapsed="true"] {
+    display: none !important;
+  }
+
+  #sidebar-logout-btn {
+    @apply rounded-2xl;
+    @apply border-2 border-green-1;
+    @apply transition-colors;
+    @apply px-8 py-2;
+    @apply font-bold text-[#4F7162] hover:bg-green-1 hover:text-white;
+  }
+}

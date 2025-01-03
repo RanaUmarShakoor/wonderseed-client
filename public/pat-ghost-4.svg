@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+  <!-- <g id="Group_22384" data-name="Group 22384" transform="translate(-563 -324)"> -->
+    <!-- <g id="Group_22361" data-name="Group 22361" transform="translate(-68 -50)"> -->
+    <!-- </g> -->
+  <!-- </g> -->
+    <!-- <circle cx="314" cy="314" r="314" fill="#cddb5e"/> -->
+    <!-- <circle cx="274" cy="274" r="274" fill="#447261"/> -->
+    <!-- <circle cx="186" cy="186" r="186" fill="#fff"/> -->
+
+    <g transform="translate(-10, 0)">
+    <circle cx="10" cy="10" r="10" fill="#cddb5e" />
+    <circle cx="10" cy="10" r="8.7" fill="#447261" />
+    <circle cx="10" cy="10" r="6" fill="#ffffff" />
+    </g>
+</svg>

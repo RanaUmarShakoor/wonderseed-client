@@ -1,0 +1,28 @@
+@tailwind components;
+
+@layer components {
+  .w-button {
+    @apply bg-green-2 transition-colors hover:bg-green-2/90;
+    @apply font-bold text-white;
+    @apply rounded-2xl px-6 py-2.5;
+    @apply text-center;
+    @apply flex items-center justify-center;
+
+    &:disabled {
+      @apply bg-green-2/60;
+      @apply text-white/80;
+      cursor: not-allowed;
+    }
+  }
+
+  .w-button-outline {
+    @apply rounded-3xl;
+    @apply border-2 border-green-1 bg-transparent;
+    @apply text-[#4F7162] hover:bg-green-1 hover:text-white;
+
+    &:disabled {
+      @apply border-green-2/40 bg-green-2/10;
+      @apply text-[#4F7162]/60;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="285.232" height="213.885" viewBox="0 0 285.232 213.885">
+  <defs>
+    <filter id="Ellipse_418" x="0" y="0" width="256.451" height="213.885" filterUnits="userSpaceOnUse">
+      <feOffset dy="23" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.069" y1="0.649" x2="0.707" y2="0.644" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d6d6d6"/>
+      <stop offset="1" stop-color="#e2e2e2"/>
+    </linearGradient>
+    <filter id="Ellipse_419" x="65.414" y="33.594" width="219.818" height="178.551" filterUnits="userSpaceOnUse">
+      <feOffset dy="23" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="18" result="blur-2"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_22563" data-name="Group 22563" transform="translate(-1069.828 -438.479)">
+    <g transform="matrix(1, 0, 0, 1, 1069.83, 438.48)" filter="url(#Ellipse_418)">
+      <ellipse id="Ellipse_418-2" data-name="Ellipse 418" cx="74.225" cy="52.942" rx="74.225" ry="52.942" transform="translate(54 31)" fill="#e8e8e8"/>
+    </g>
+    <ellipse id="Ellipse_420" data-name="Ellipse 420" cx="42.881" cy="26.471" rx="42.881" ry="26.471" transform="translate(1087.693 515.779)" fill="#e8e8e8"/>
+    <g transform="matrix(1, 0, 0, 1, 1069.83, 438.48)" filter="url(#Ellipse_419)">
+      <ellipse id="Ellipse_419-2" data-name="Ellipse 419" cx="55.909" cy="35.276" rx="55.909" ry="35.276" transform="translate(119.41 64.59)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

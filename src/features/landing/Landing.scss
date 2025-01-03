@@ -1,0 +1,47 @@
+@tailwind components;
+
+@layer components {
+  #ld-sheet {
+    background: transparent linear-gradient(180deg, #e0ebce 0%, #ffffff 100%) 0%
+      0% no-repeat padding-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @apply h-screen min-h-screen;
+  }
+  #ld-login-btn {
+    @apply bg-green-3 transition-colors hover:bg-green-3/90;
+    @apply font-bold text-white;
+    @apply rounded-2xl px-6 py-1.5;
+  }
+  #ld-grad {
+    // background: transparent linear-gradient(265deg, #439680 0%, #224B4000 100%) 0% 0% no-repeat padding-box;
+    height: auto;
+    position: relative;
+
+    @apply mt-28 pt-12;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: calc(100% + 150px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background: transparent
+        linear-gradient(265deg, #439680 0%, #224b4000 100%) 0% 0% no-repeat
+        padding-box;
+
+      transform: translateX(-50%) rotate(354deg);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+  }
+
+  #ld-dragon {
+    position: absolute;
+    top: 0;
+    @apply -translate-y-1/2;
+    right: 0;
+  }
+}

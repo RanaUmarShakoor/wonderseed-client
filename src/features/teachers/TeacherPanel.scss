@@ -1,0 +1,135 @@
+@tailwind components;
+
+@layer components {
+  #panel-teachers {
+    @apply flex;
+
+    @apply max-h-full min-h-full min-w-full max-w-full;
+
+    background: transparent linear-gradient(180deg, #e0ebce 0%, #ffffff 100%) 0%
+      0% no-repeat padding-box;
+  }
+}
+
+/* Sidebar stuff */
+
+/* ======= */
+/* Batches */
+/* ======= */
+
+@layer components {
+  #th-select-program {
+    @apply grid auto-rows-[1fr] grid-cols-1 lg:grid-cols-3;
+    @apply gap-x-12 gap-y-32 lg:gap-y-9;
+
+    .program-box {
+      @apply relative flex flex-col items-center gap-y-4 rounded-lg pb-6 pt-28;
+      @apply cursor-pointer;
+
+      transition: box-shadow 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      &:hover {
+        box-shadow: 0px 6px 9px #00000029;
+      }
+      background: #e7eed2;
+
+      > img:first-child {
+        position: absolute;
+        @apply top-0 -translate-y-1/2;
+        @apply left-1/2 -translate-x-1/2;
+        height: 126px;
+      }
+    }
+
+    .program-name {
+      @apply mb-3 text-3xl font-black;
+    }
+
+    .stat-name {
+      @apply text-lg;
+    }
+    .stat-value {
+      @apply text-4xl font-bold;
+    }
+  }
+
+  #th-select-program .program-box {
+    &.grad-1 {
+      background: transparent linear-gradient(180deg, #e1ebd0 0%, #f4f6d7 100%)
+        0% 0% no-repeat padding-box;
+    }
+    &.grad-2 {
+      background: transparent linear-gradient(180deg, #f5eac6 0%, #f6e9d7 100%)
+        0% 0% no-repeat padding-box;
+    }
+    &.grad-3 {
+      background: transparent linear-gradient(180deg, #f8e6e1 0%, #fcded3 100%)
+        0% 0% no-repeat padding-box;
+    }
+  }
+}
+
+/* ======= */
+/* Cohorts */
+/* ======= */
+
+@layer components {
+  #th-cohorts-list {
+    @apply mt-10;
+
+    > .entry {
+      @apply bg-white even:bg-[#FAFAFA];
+
+      @apply p-9;
+
+      @apply grid grid-cols-[1fr_auto] grid-rows-[auto_auto] gap-y-2;
+
+      .name {
+        @apply text-xl font-bold;
+      }
+      .students {
+        @apply text-right text-lg;
+        > span {
+          @apply font-bold;
+        }
+      }
+      .desc {
+        @apply text-lg;
+      }
+      .progress {
+        @apply font-bold;
+        color: white;
+        @apply bg-green-3 hover:bg-green-3/80;
+        border-radius: 16px;
+        padding: 8px 22px;
+      }
+    }
+  }
+}
+
+/* =============== */
+/* Cohort Progress */
+/* =============== */
+
+@layer components {
+  #th-progress-table {
+    @apply text-lg;
+    th {
+      background-color: #e1ebd0;
+      text-align: left;
+      @apply font-bold;
+    }
+    th,
+    td {
+      @apply px-8 py-5 first:pl-8 last:pr-8;
+      min-width: auto;
+      white-space: nowrap;
+    }
+
+    tr > td {
+      background-color: white;
+    }
+    tr:nth-child(2n + 1) > td {
+      background-color: #f5f5f5;
+    }
+  }
+}

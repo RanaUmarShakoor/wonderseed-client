@@ -1,0 +1,46 @@
+@tailwind components;
+
+@layer components {
+  .w-progress-bar {
+    position: relative;
+    height: 8px;
+
+    .w-pg-mainbar {
+      background-color: #e8e8e8;
+
+      border-radius: 40px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+
+      > .w-pg-inner {
+        height: 100%;
+        background: transparent
+          linear-gradient(180deg, #06755f 0%, #cadc43 100%) 0% 0% no-repeat
+          padding-box;
+        border-radius: 40px;
+      }
+    }
+
+    .w-pg-dots {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      @apply flex items-center justify-between;
+
+      > .w-pg-dots-inner {
+        width: 16px;
+        height: 16px;
+        @apply rounded-full;
+        border: 2px solid #81ae38;
+        background-color: white;
+        &[data-completed="true"] {
+          background-color: #447261;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@tailwind components;
+
+@layer components {
+  /* Not namespaced bacause it is somewhat global component class */
+  .module-button {
+    cursor: pointer;
+    @apply rounded-2.5xl border-2 border-[#C5DBD8] px-7 py-4 font-bold uppercase;
+    @apply transition-colors;
+
+    @apply flex items-center justify-between;
+
+    // &:hover,
+    &[data-active="true"] {
+      // @apply border-green-4 bg-green-4 text-white;
+      @apply text-white;
+      @apply border-0;
+      background: transparent
+        linear-gradient(
+          270deg,
+          #81ae38 0%,
+          #cadc43 0%,
+          #c3d844 0%,
+          #7ab24e 0%,
+          #6cab50 48%,
+          #388f58 72%,
+          #06755f 100%
+        )
+        0% 0% no-repeat padding-box;
+    }
+
+    > svg {
+      visibility: hidden;
+    }
+    &[data-active="true"] > svg {
+      visibility: visible;
+    }
+  }
+}
+
+@layer components {
+  #mod-video-container {
+    @apply w-full;
+    max-width: 640px;
+
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    padding: 6px;
+    background-color: white;
+  }
+
+  #mod-video-rounded-wrapper {
+    border-radius: 6px;
+    border: 1px solid white;
+    overflow: hidden;
+  }
+}

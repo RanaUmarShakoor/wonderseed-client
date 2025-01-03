@@ -1,0 +1,29 @@
+@tailwind components;
+
+@layer components {
+  #st-modules-completed {
+    @apply grid grid-cols-[repeat(5,auto)] gap-x-20 gap-y-2.5;
+
+    * {
+      min-width: auto;
+    }
+
+    > .st-mc-row {
+      white-space: nowrap;
+      @apply col-span-full grid;
+      @apply bg-[#FAFAFA];
+      padding: 30px;
+      grid-template-columns: subgrid;
+    }
+
+    .mc-stat-cell {
+      > img {
+        width: 3rem;
+        height: 3rem;
+        /* For some reason removing min-width and min-height breaks the layout :( */
+        min-width: 3rem;
+        min-height: 3rem;
+      }
+    }
+  }
+}

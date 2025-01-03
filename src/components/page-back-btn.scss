@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+  .page-back-btn {
+    @apply h-9 w-9;
+    @apply box-content p-1;
+    @apply rounded-full;
+    @apply cursor-pointer;
+    @apply bg-transparent transition-colors hover:bg-black/[0.15];
+  }
+}

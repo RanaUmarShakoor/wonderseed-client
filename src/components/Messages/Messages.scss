@@ -1,0 +1,108 @@
+@tailwind components;
+
+/* ========= */
+/* Messaging */
+/* ========= */
+
+@layer components {
+  #th-chat-window {
+    @apply flex flex-col bg-[#F8F8F8];
+
+    .message-list {
+      @apply px-10 pt-9;
+      @apply grow;
+      @apply flex flex-col;
+      overflow-y: auto;
+      row-gap: 14px;
+    }
+
+    .message {
+      flex-shrink: 0;
+      padding: 16px 20px;
+      border-radius: 11px;
+      line-height: 1.25;
+      color: black;
+      font-size: 15px;
+
+      width: 90%;
+      max-width: 472px;
+
+      &[data-source="other"] {
+        background-color: #f4f6d7;
+        border: 1px solid #06755f;
+        border-top-left-radius: 0;
+        align-self: flex-start;
+      }
+
+      &[data-source="self"] {
+        background-color: #e1ebd0;
+        border: 1px solid #193a32;
+        border-top-right-radius: 0;
+        align-self: flex-end;
+      }
+    }
+
+    .day-separator {
+      @apply flex items-center gap-x-3;
+
+      color: #7e7e7e;
+      margin: 0.125rem 0;
+
+      &::before,
+      &::after {
+        content: " ";
+        display: block;
+        border: 1px solid #e0e0e0;
+        flex: 1 1 0;
+      }
+    }
+
+    #message-bar {
+      @apply shrink-0;
+      @apply mx-10 mb-3 mt-5;
+
+      border-radius: 18px;
+      box-shadow: 0px 3px 6px #00000029;
+      overflow: hidden;
+
+      @apply flex;
+
+      > input {
+        flex: 1 1 0;
+        padding: 0 30px;
+        color: black;
+      }
+
+      #send-btn {
+        @apply bg-green-2 transition-colors hover:bg-green-2/90;
+      }
+
+      #send-btn > img {
+        width: 30px;
+        height: 30px;
+        margin: 10px 0;
+        margin-left: 16px;
+        margin-right: 24px;
+      }
+    }
+  }
+
+  /* ------------------ */
+  // Model
+
+  #th-msgs-modal {
+    box-shadow: 0px 4px 10px #0000002c;
+  }
+  #st-progress-grad-1 {
+    background: transparent linear-gradient(180deg, #e1ebd0 0%, #f4f6d7 100%) 0%
+      0% no-repeat padding-box;
+  }
+  #st-progress-grad-2 {
+    background: transparent linear-gradient(180deg, #f5eac6 0%, #f6e9d7 100%) 0%
+      0% no-repeat padding-box;
+  }
+  #st-progress-grad-3 {
+    background: transparent linear-gradient(180deg, #f8e6e1 0%, #fcded3 100%) 0%
+      0% no-repeat padding-box;
+  }
+}

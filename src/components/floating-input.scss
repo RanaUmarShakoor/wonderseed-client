@@ -1,0 +1,61 @@
+@tailwind components;
+
+@layer components {
+  .floating-input {
+    @apply relative h-[42px] rounded-2.5xl border-2 border-[#C9DAD7] px-6 md:h-[50px];
+
+    > input {
+      @apply h-full w-full bg-transparent font-bold text-[#193A32];
+    }
+
+    > label {
+      @apply select-none;
+      @apply backdrop-blur-3xl;
+      @apply pointer-events-none absolute left-4 -translate-y-1/2 whitespace-nowrap font-bold text-[#58756d];
+      @apply top-1/2 bg-transparent px-0;
+      @apply text-sm md:text-base;
+      transition: all 0.2s ease;
+    }
+
+    > input:focus + label,
+    > input:not(:placeholder-shown) + label {
+      @apply -top-0.5 bg-transparent px-2 text-xs;
+    }
+  }
+
+  /* WARNING: It's not floating */
+  .floating-select {
+    @apply relative h-[40px] rounded-2xl border-2 border-[#C9DAD7];
+
+    @apply inline-block;
+    @apply cursor-pointer;
+
+    > select {
+      @apply cursor-pointer;
+      @apply appearance-none bg-transparent px-4 pr-12;
+      @apply text-[#193A32];
+      @apply h-full;
+
+      @apply disabled:cursor-not-allowed;
+      @apply disabled:text-[#629487];
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      @apply -translate-y-1/2;
+
+      @apply pointer-events-none;
+
+      width: 15px;
+      height: 15px;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSdibGFjaycgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTcgMTBsNSA1IDUtNXonLz48cGF0aCBkPSdNMCAwaDI0djI0SDB6JyBmaWxsPSdub25lJy8+PC9zdmc+);
+      background-size: 200% 200%;
+      background-position: center center;
+
+      opacity: 0.5;
+    }
+  }
+}
